@@ -24,6 +24,7 @@ EBTNodeResult::Type	UChooseNextWaypoint::ExecuteTask(UBehaviorTreeComponent& Own
 		return EBTNodeResult::Failed;
 	}
 
+
 	//set next waypoint
 	auto blackboardComp = OwnerComp.GetBlackboardComponent();
 	auto index = blackboardComp->GetValueAsInt(indexKey.SelectedKeyName);
@@ -31,6 +32,5 @@ EBTNodeResult::Type	UChooseNextWaypoint::ExecuteTask(UBehaviorTreeComponent& Own
 	
 	auto nextIndex = (index + 1) % patrolPoints.Num();
 	blackboardComp->SetValueAsInt(indexKey.SelectedKeyName, nextIndex);
-
 	return EBTNodeResult::Succeeded;
 }
